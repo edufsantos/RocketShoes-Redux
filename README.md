@@ -16,10 +16,10 @@ RocketShoes é uma aplicação de compras online. A aplicação Web e a aplicaç
   1. Biblioteca que implementa Arquitetura Flux; 
   2. Controle de estados globais; 
   3. Quando utilizar o Redux? ;
-    -  Meu estado tem mais de um “dono”? ;
-    - Meu estado é manipulado por mais componentes?; 
-    - As ações do usuário causam efeitos colaterais nos dados?; 
-  4.Exemplos: Carrinho de compras, dados do usuário, player de música, etc;
+    1. Meu estado tem mais de um “dono”? 
+    2. Meu estado é manipulado por mais componentes?
+    3. As ações do usuário causam efeitos colaterais nos dados? 
+  4.Exemplos: Carrinho de compras, dados do usuário, player de música, etc
 
 ## 🚀 Instalação e execução
 
