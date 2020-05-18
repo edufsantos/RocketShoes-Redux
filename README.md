@@ -22,13 +22,76 @@ RocketShoes é uma aplicação de compras online. A aplicação Web e a aplicaç
   7.Exemplos: Carrinho de compras, dados do usuário, player de música, etc
 
 #### Princípios 
-Toda action deve possuir um “type”; 
-1. O estado do Redux é o único ponto de verdade; 
-2. Não podemos mutar o estado do Redux sem uma action; 
-3. As actions e reducers são funções puras, ou seja, não lidam com side-effects assíncronos; 
-4. Qualquer lógica síncrona para regras de negócio deve ﬁcar no reducer e nunca na action; 
-5. Nem toda aplicação precisa Redux, inicie sem ele e sinta a necessidade depois;
+1.Toda action deve possuir um “type”; 
+2. O estado do Redux é o único ponto de verdade; 
+3. Não podemos mutar o estado do Redux sem uma action; 
+4. As actions e reducers são funções puras, ou seja, não lidam com side-effects assíncronos; 
+5. Qualquer lógica síncrona para regras de negócio deve ﬁcar no reducer e nunca na action; 
+6. Nem toda aplicação precisa Redux, inicie sem ele e sinta a necessidade depois;
 
+#### A store
+"store" é o nome dado pelo Facebook para o conjunto de estados da sua aplicação. Vamos pensar na store como um grande centro de informações, que possui disponibilidade para receber e entregar exatamente o que o seu componente requisita (seja uma função, ou uma informação propriamente dita). Tecnicamente, a store é um objeto JavaScript que possui todos os estados dos seus componentes.
+
+#### Os reducers
+Cada dado da store deve ter o seu próprio reducer, por exemplo: o dado "user" teria o seu reducer, chamado "userReducer". Um reducer é encarregado de lidar com todas as ações, como algum componente pedindo para alterar algum dado da store.
+
+
+#### As actions
+Actions são responsáveis por requisitar algo para um reducer. Elas devem ser sempre funções puras, o que, dizendo de uma forma leiga, quer dizer que elas devem APENAS enviar os dados ao reducer, nada além disso.
+
+##### Exemplo
+
+```
+
+//reducer inicial
+
+[]
+
+// Action Add to cart
+{   
+  type: "ADD_TO_CART",   
+    product: {     
+      id: 1,     
+      title: "Novo produto",     
+      price: 129.9   
+    } 
+ }
+
+//reducer após
+
+  
+[   
+  {     
+    id: 1,     
+    title: "Novo produto",     
+    price: 129.9,     
+    amount: 1,     
+    priceFormatted: "R$129,90"   
+  }
+]
+
+
+//action update ammount
+
+{   
+  type: “UPDATE_AMOUNT”,   
+  product: 1,   
+  amount: 5, 
+}
+
+//reducer final
+
+[   
+  {    
+    id: 1,     
+    title: "Novo produto",     
+    price: 129.9,     
+    amount: 5,    
+    priceFormatted: "R$129,90"   
+  } 
+]
+ 
+```
 
 ## 🚀 Instalação e execução
 
