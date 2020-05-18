@@ -10,6 +10,16 @@
 
 RocketShoes é uma aplicação de compras online. A aplicação Web e a aplicação mobile podem ser usadas pelos usuários que querem efetuarem compras de maneira simples e fácil.
 
+### <img src="https://cdn.worldvectorlogo.com/logos/redux.svg" width="30px" /> Redux
+  
+####  O que é Redux? 
+  1. Biblioteca que implementa Arquitetura Flux; 
+  2. Controle de estados globais; 
+  3. Quando utilizar o Redux? ;
+    -  Meu estado tem mais de um “dono”? ;
+    - Meu estado é manipulado por mais componentes?; 
+    - As ações do usuário causam efeitos colaterais nos dados?; 
+  4.Exemplos: Carrinho de compras, dados do usuário, player de música, etc;
 
 ## 🚀 Instalação e execução
 
