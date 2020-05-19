@@ -11,7 +11,7 @@ export default function Reducer(state = [], action){
           draft.push({
             ...action.product,
             amount: 1,
-          })       
+          });
         }
       })
     default:
