@@ -4,7 +4,8 @@ import {MdAddCircleOutline, MdRemoveCircleOutline, MdDelete} from 'react-icons/m
 import { Container, ProductTable, Total } from './styles';
 import {bindActionCreators} from 'redux'
 import * as CartActions from '../../store/modules/cart/actions'
-function Cart({cart , removeFromCart, updateAmount}) {
+import { formatPrice } from '../../util/format';
+function Cart({cart, total, removeFromCart, updateAmount}) {
 
   function increment(carrinho){
     updateAmount(carrinho.id, carrinho.amount + 1);
@@ -34,7 +35,7 @@ function Cart({cart , removeFromCart, updateAmount}) {
               </td>
               <td>
                 <strong>Tenis Bâo</strong>
-                <span>120</span>
+                <span>{formatPrice(carrinho.price)}</span>
               </td>
               <td>
                 <div>
@@ -48,7 +49,7 @@ function Cart({cart , removeFromCart, updateAmount}) {
                 </div>
               </td>
               <td>
-                <strong>R$ 150,00</strong>
+                <strong>{carrinho.subtotal}</strong>
               </td>
               <td>
                 <button type="button">
@@ -66,14 +67,21 @@ function Cart({cart , removeFromCart, updateAmount}) {
        <button type="Button"> finalizar pedido</button>
       <Total>
         <span>Total</span>
-        <strong>R$: 120,00</strong>
+        <strong>{total}</strong>
       </Total>
      </footer>
    </Container>
   );
 }
 const mapStateToProps = state =>({
-  cart: state.cart
+  cart: state.cart.map(carrinho => ({
+    ...carrinho,
+    subtotal: formatPrice(carrinho.price * carrinho.amount)
+  })),
+  total: formatPrice( state.cart.reduce((total, carrinho) => {
+    return total + carrinho.price * carrinho.amount; 
+  }, 0))
+
 })
 const mapDispatchToProps = dispatch => bindActionCreators(CartActions, dispatch);
 
