@@ -3,8 +3,9 @@
 import { call, select,  put,all, takeLatest } from 'redux-saga/effects'
 import api from '../../../services/api';
 import { addToCartSuccess,updateAmountSuccess} from './actions'
-import { formatPrice } from '../../../util/format'
-import {toast} from 'react-toastify'
+import { formatPrice } from '../../../util/format';
+import history from '../../../services/history'
+import {toast} from 'react-toastify'  
 
 function* addToCart({ id  }){
   const productExists = yield select(
@@ -34,6 +35,7 @@ function* addToCart({ id  }){
       priceFormatted: formatPrice(response.data.price)
     }
     yield put(addToCartSuccess(data));
+    history.push('/cart');
   }
 } 
 function* updateAmount({ id, amount}){
