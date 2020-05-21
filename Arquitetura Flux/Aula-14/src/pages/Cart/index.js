@@ -5,14 +5,14 @@ import { Container, ProductTable, Total } from './styles';
 import {bindActionCreators} from 'redux'
 import * as CartActions from '../../store/modules/cart/actions'
 import { formatPrice } from '../../util/format';
-function Cart({cart, total, removeFromCart, updateAmount}) {
+function Cart({cart, total, removeFromCart, updateAmountRequest}) {
 
   function increment(carrinho){
-    updateAmount(carrinho.id, carrinho.amount + 1);
+    updateAmountRequest(carrinho.id, carrinho.amount + 1);
   }
   
   function decrement(carrinho){
-    updateAmount(carrinho.id, carrinho.amount - 1);
+    updateAmountRequest(carrinho.id, carrinho.amount - 1);
   }
   
   return (

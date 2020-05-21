@@ -16,10 +16,8 @@ export default function Reducer(state = [], action){
         }
       })
     
-    case '@cart/UPDATE_AMOUNT': {
-      if(action.amount <=0 ){
-        return state;
-      }
+    case '@cart/UPDATE_AMOUNT_SUCCESS': {
+   
         return produce(state, draft =>{
         const productIndex = draft.findIndex(p => p.id === action.id);
         if (productIndex >= 0){
