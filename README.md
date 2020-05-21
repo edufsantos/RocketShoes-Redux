@@ -134,7 +134,7 @@ You plug it into your app as a dev dependency so it adds nothing to your product
 ##  🚀 Instalação e execução
 
 1. Faça um clone desse repositório;
-2. Entre na pasta rodando `cd RocketShoes`;
+2. Entre na pasta rodando `cd RocketShoes-Redux`;
 3. Rode `yarn` para instalar as dependências;
 4. Rode `yarn start` para iniciar a aplicação;
 5. Rode `json-server server.json -p 3333`.
